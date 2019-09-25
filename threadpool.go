@@ -24,6 +24,7 @@ func (this *ThreadPool)worker(id int,){
 }
 func (this *ThreadPool)Reset(){
 	atomic.StoreInt32(&this.nreq,0)
+	this.Close()
 	this.jobs=make(chan func()interface{},this.maxqueue)
 	this.results=make(chan interface{},this.maxqueue)
 }
