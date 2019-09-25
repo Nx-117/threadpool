@@ -33,6 +33,7 @@ func (this *ThreadPool)Req(_f func()interface{}){
 }
 func (this *ThreadPool)Close(){
 	close(this.jobs)
+	close(this.results)
 }
 func (this *ThreadPool)Wait(){
 	for{
